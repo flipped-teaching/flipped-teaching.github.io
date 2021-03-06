@@ -1,0 +1,245 @@
+/*Define CSS variables to use throughout the stylesheet*/
+:root{
+  --mainText: #fff;
+  --secondaryText: #fff;
+
+  --mainColour: #eaeaea;
+
+  --borderColour: #c1c1c1;
+}
+
+html{
+  scroll-behavior: smooth; /* Set the smooth scroll for better UX */
+}
+
+/* Get rid of the default browser padding and margins for the document and the body section */
+html, body{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, strong{
+  /* Set unified colour and font settings for all the headings */
+  color: var(--mainText);
+  /*font-family: "Russo One", sans-serif; /* Use the custom font added in the html document. The way it is specified here is taken from Google Fonts */
+  /*font-weight: 500; /* Not sure how it works exactly but it changes how thick the font/letters are */
+  /* font-family: 'Sansita Swashed', cursive; */
+  font-family: 'Clicker Script', cursive;
+}
+
+p, li, span, label, input, textarea{
+  /* Set unified colour and font settings for all other elements */
+  color: var(--secondaryText);
+  /* font-family: "Roboto Mono", monospace; */
+  font-family: 'Lusitana', serif;
+}
+
+a{
+  /* Optional styling for the links (in case I use them) */
+  text-decoration: none;
+  /* color: #17a2b8 */
+}
+
+a:hover{
+  /* Optional styling for the links (in case I use them) */
+  text-decoration: none;
+  /* color: #17a2b8 */
+}
+
+ul{
+  /* Optional styling for the unordered lists (in case I use them) */
+  list-style: none;
+}
+
+/* Specify custom font sizes for the headings. Note it's on top of choosing a custom font and the weight => font-weight!=font-size */
+h1{ font-size: 100px; }
+h2{ font-size: 36px; font-family: 'Playfair Display', serif;}
+h3{ font-size: 28px; font-family: 'Playfair Display', serif;}
+h4{ font-size: 24px; }
+h5{ font-size: 20px; }
+h6{ font-size: 16px; font-family: 'Playfair Display', serif;}
+
+section{
+  overflow: auto; /* !!!!!!!!! Don't know what it does */
+  height: 100%;
+}
+
+#outer-container{
+  background-color: rgba(0,0,0,0.7);
+  height: 100%;
+  margin: 0 auto;
+}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto; /* Set the margin to 0 and centre the content. ("margin: auto;" centers the content PROVIDED we set the width of the element as is done above) */
+}
+
+#backgroundVideo {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.greeting-wrapper{
+  display: grid;  /* Create a grid area to display the elements of that element */
+  justify-content: center;  /* Centre the elements horizontally */
+  align-content: center;  /* Centre the elements vertically */
+  text-align: center; /* Centre the text within the elements. Note: compare with above ("justify-content: center") */
+  min-height: 12em; /* Set the height rather than using the automatic height (elements + padding + margins). If specified height is less than automatic height, then automatic height is used (note: MIN-height is used) */
+  /* background-color: blue; */
+}
+
+#main-header{
+  margin-bottom: 25px;
+  margin-top: 0;
+}
+
+.social-media i{
+  font-size: 25px;
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.content-wrapper{
+  height: 75%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Define how to divide the space into columns, 1fr = 1 fraction */
+  grid-template-rows: 100%;/*25em; /* Define the rows and their height. For details about the em unit: https://www.w3schools.com/cssref/css_units.asp */
+  grid-template-areas:  /* Define how to organise the rows. Each row has to have an area specified for all columns (unless we don't use grid-template-columns => columns created based on the rows defined here). Note: if we want navigation to take up the entire row, we have to specify this area for both columns */
+    "left-column right-column";
+}
+
+.left-column{
+  grid-area: left-column; /* Identifies this element as an area to use for the grid in the parent element (see intro-wrapper -> grid-template-areas). This identifier does not have to be the same as the class name. */
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* margin-right: 50px; */
+}
+
+.column-container{
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.column-container h2{
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
+}
+
+#project-description{
+  text-align: justify;
+}
+
+.team-container{
+  text-align: center;
+  margin-top: 50px;
+  /* display: none; */
+}
+
+.team-container h3{
+  margin-bottom: 15px;
+}
+
+.team{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.team h6{
+  margin: 10px 0 0 0;
+}
+
+.team img{
+  border-radius: 50%;
+}
+
+.team-member{
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.right-column{
+  grid-area: right-column;  /* Identifies this element as an area to use for the grid in the parent element (see intro-wrapper -> grid-template-areas). This identifier does not have to be the same as the class name. */
+  /* background-color: skyblue; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* margin-left: 50px; */
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.contact{
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5%;
+  padding: 40px;
+}
+
+.newsletter-heading{
+  margin-bottom: 30px;
+}
+
+.newsletter-heading p{
+  margin-top: -15px;
+}
+
+.newsletter-form{
+  /* margin-bottom: 25px; */
+}
+
+.newsletter-form button{
+  margin-top: 10px;
+}
+
+.resources-heading p{
+  /* margin-top: -5px; */
+  font-size: 15px;
+}
+
+.resources button{
+  font-size: 13px;
+}
+
+.resources{
+  margin-bottom: 15px;
+}
+
+
+@media screen and (max-width: 1200px){
+  .main-container{
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 800px){
+  .content-wrapper{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "left-column"
+      "right-column";
+  }
+
+  .left-column{
+    margin-right: 0;
+  }
+
+  .right-column{
+    justify-content: center;
+    margin-left: 0;
+  }
+}
